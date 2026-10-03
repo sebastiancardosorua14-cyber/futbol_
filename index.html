@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fútbol Total</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07110b;
+    color: white;
+}
+
+/* MENU */
+
+nav {
+    background: #041008;
+    padding: 18px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #20df69;
+}
+
+/* PORTADA */
+
+.portada {
+    height: 600px;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.portada h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.portada h1 span {
+    color: #20df69;
+}
+
+.portada p {
+    font-size: 22px;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 28px;
+    background: #20df69;
+    color: #041008;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.boton:hover {
+    background: white;
+}
+
+/* SECCIONES */
+
+section {
+    padding: 70px 8%;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.titulo h2 {
+    font-size: 40px;
+    color: #20df69;
+    margin-bottom: 10px;
+}
+
+.titulo p {
+    color: #c8d3cc;
+}
+
+/* SOBRE EL FUTBOL */
+
+.sobre {
+    background: #0b1c10;
+}
+
+.texto {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* CARACTERISTICAS */
+
+.caracteristicas {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.card {
+    background: #102619;
+    width: 270px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    transition: 0.3s;
+    border: 1px solid #183d25;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(32,223,105,0.25);
+}
+
+.card .icono {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #20df69;
+    margin-bottom: 10px;
+}
+
+/* JUGADORES */
+
+.jugadores {
+    background: #06150a;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.jugador {
+    width: 250px;
+    background: #102619;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.jugador:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(32,223,105,0.4);
+}
+
+.jugador img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.jugador-info {
+    padding: 20px;
+}
+
+.jugador-info h3 {
+    color: white;
+    margin-bottom: 7px;
+}
+
+.jugador-info p {
+    color: #20df69;
+}
+
+/* DATOS */
+
+.datos {
+    background: #0b1c10;
+    text-align: center;
+}
+
+.numeros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.numero strong {
+    display: block;
+    font-size: 50px;
+    color: #20df69;
+}
+
+.numero span {
+    color: #d3ddd6;
+}
+
+/* TABLA */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: #102619;
+}
+
+th {
+    background: #20a957;
+    padding: 17px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #284634;
+}
+
+tr:hover {
+    background: #183d25;
+}
+
+/* FRASE */
+
+.frase {
+    text-align: center;
+
+    background-image:
+    linear-gradient(rgba(0,20,8,0.8), rgba(0,20,8,0.8)),
+    url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.frase h2 {
+    font-size: 42px;
+}
+
+.frase p {
+    margin-top: 15px;
+    color: #20df69;
+}
+
+/* FOOTER */
+
+footer {
+    background: #020704;
+    text-align: center;
+    padding: 30px;
+    color: #aebbb2;
+}
+
+footer span {
+    color: #20df69;
+}
+
+/* CELULAR */
+
+@media(max-width:700px) {
+
+    .portada h1 {
+        font-size: 45px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    .frase h2 {
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- MENU -->
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+
+<a href="#futbol">El fútbol</a>
+
+<a href="#jugadores">Jugadores</a>
+
+<a href="#datos">Datos</a>
+
+<a href="#leyendas">Leyendas</a>
+
+</nav>
+
+
+<!-- PORTADA -->
+
+<header class="portada" id="inicio">
+
+<div>
+
+<h1>FÚTBOL <span>TOTAL</span></h1>
+
+<p>Pasión que une al mundo ⚽</p>
+
+<a href="#futbol" class="boton">
+Descubrir
+</a>
+
+</div>
+
+</header>
+
+
+<!-- SOBRE EL FUTBOL -->
+
+<section class="sobre" id="futbol">
+
+<div class="titulo">
+
+<h2>⚽ ¿Qué es el fútbol?</h2>
+
+<p>Mucho más que un deporte</p>
+
+</div>
+
+<div class="texto">
+
+<p>
+El fútbol es uno de los deportes más populares del mundo.
+Se juega entre dos equipos de once jugadores y el objetivo
+es marcar más goles que el rival.
+</p>
+
+<br>
+
+<p>
+Pero el fútbol también representa pasión, disciplina,
+trabajo en equipo, esfuerzo y emoción. Por eso millones
+de personas disfrutan de este deporte cada día.
+</p>
+
+</div>
+
+
+<div class="caracteristicas">
+
+<div class="card">
+
+<div class="icono">🏆</div>
+
+<h3>Competencia</h3>
+
+<p>
+Los equipos compiten para conseguir la victoria
+y conquistar grandes títulos.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icono">🤝</div>
+
+<h3>Trabajo en equipo</h3>
+
+<p>
+Todos los jugadores deben colaborar para conseguir
+el objetivo.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icono">🔥</div>
+
+<h3>Pasión</h3>
+
+<p>
+El fútbol genera emociones y une a personas de
+todo el mundo.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- JUGADORES -->
+
+<section class="jugadores" id="jugadores">
+
+<div class="titulo">
+
+<h2>🌟 Estrellas del fútbol</h2>
+
+<p>Algunos de los jugadores más reconocidos</p>
+
+</div>
+
+
+<div class="galeria">
+
+
+<div class="jugador">
+
+<img src="messi.jpg">
+
+<div class="jugador-info">
+
+<h3>Lionel Messi</h3>
+
+<p>🇦🇷 Argentina</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg">
+
+<div class="jugador-info">
+
+<h3>Cristiano Ronaldo</h3>
+
+<p>🇵🇹 Portugal</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="neymar.avif">
+
+<div class="jugador-info">
+
+<h3>Neymar Jr.</h3>
+
+<p>🇧🇷 Brasil</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="mbappe.jpg">
+
+<div class="jugador-info">
+
+<h3>Kylian Mbappé</h3>
+
+<p>🇫🇷 Francia</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="vinicius.jpg">
+
+<div class="jugador-info">
+
+<h3>Vinícius Jr.</h3>
+
+<p>🇧🇷 Brasil</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="james.jpg">
+
+<div class="jugador-info">
+
+<h3>James Rodríguez</h3>
+
+<p>🇨🇴 Colombia</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="pele.avif">
+
+<div class="jugador-info">
+
+<h3>Pelé</h3>
+
+<p>🇧🇷 Brasil</p>
+
+</div>
+
+</div>
+
+
+<div class="jugador">
+
+<img src="maradona.avif">
+
+<div class="jugador-info">
+
+<h3>Maradona</h3>
+
+<p>🇦🇷 Argentina</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- DATOS -->
+
+<section class="datos" id="datos">
+
+<div class="titulo">
+
+<h2>📊 El fútbol en números</h2>
+
+</div>
+
+
+<div class="numeros">
+
+<div class="numero">
+
+<strong>11</strong>
+
+<span>Jugadores por equipo</span>
+
+</div>
+
+
+<div class="numero">
+
+<strong>90</strong>
+
+<span>Minutos de juego</span>
+
+</div>
+
+
+<div class="numero">
+
+<strong>2</strong>
+
+<span>Equipos en el campo</span>
+
+</div>
+
+
+<div class="numero">
+
+<strong>1</strong>
+
+<span>Balón</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEYENDAS -->
+
+<section id="leyendas">
+
+<div class="titulo">
+
+<h2>🏆 Grandes leyendas</h2>
+
+<p>Jugadores que hicieron historia</p>
+
+</div>
+
+
+<div class="tabla-contenedor">
+
+<table>
+
+<tr>
+
+<th>Jugador</th>
+
+<th>País</th>
+
+<th>Posición</th>
+
+<th>Reconocido por</th>
+
+</tr>
+
+
+<tr>
+
+<td>Pelé</td>
+
+<td>🇧🇷 Brasil</td>
+
+<td>Delantero</td>
+
+<td>Goles y títulos</td>
+
+</tr>
+
+
+<tr>
+
+<td>Maradona</td>
+
+<td>🇦🇷 Argentina</td>
+
+<td>Mediocampista</td>
+
+<td>Regate y creatividad</td>
+
+</tr>
+
+
+<tr>
+
+<td>Messi</td>
+
+<td>🇦🇷 Argentina</td>
+
+<td>Delantero</td>
+
+<td>Regate y visión</td>
+
+</tr>
+
+
+<tr>
+
+<td>Cristiano Ronaldo</td>
+
+<td>🇵🇹 Portugal</td>
+
+<td>Delantero</td>
+
+<td>Goles y potencia</td>
+
+</tr>
+
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- FRASE -->
+
+<section class="frase">
+
+<h2>
+“El fútbol es una pasión que nunca termina.”
+</h2>
+
+<p>⚽ Vive el fútbol</p>
+
+</section>
+
+
+<!-- PIE -->
+
+<footer>
+
+<p>
+Página creada por <span>Sebastian Cardoso</span>
+</p>
+
+<p>
+9-2 | 2026
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
